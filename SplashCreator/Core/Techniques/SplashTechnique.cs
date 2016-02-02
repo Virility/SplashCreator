@@ -27,13 +27,9 @@ namespace SplashCreator.Core.Techniques
                 throw new InvalidDataException("Splash method is not available.");
 
             var constructorMethodDef = typeDef.FindOrCreateStaticConstructor();
-            if (constructorMethodDef.Body.Instructions.Count == 1)
-                constructorMethodDef.Body.Instructions.RemoveAt(0);
 
             var injectionMethodDef = moduleType.FindMethod("Splash");
             var injectedMethodDef = InjectHelper.Inject(injectionMethodDef, targetModuleDef);
-
-            constructorMethodDef.AddInstructions(injectedMethodDef.Body.Instructions);
             constructorMethodDef.Body = injectedMethodDef.Body;
 
             AfterInjectionCallback(injectedMethodDef, obj);
