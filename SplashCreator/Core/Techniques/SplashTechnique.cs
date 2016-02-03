@@ -2,8 +2,6 @@
 using System.Linq;
 using System.Reflection;
 using dnlib.DotNet;
-using SplashCreator.Core.Extensions;
-using SplashCreator.Core.Helpers;
 
 namespace SplashCreator.Core.Techniques
 {
@@ -26,13 +24,10 @@ namespace SplashCreator.Core.Techniques
             if (moduleType == null)
                 throw new InvalidDataException("Splash method is not available.");
 
-            var injectionMethodDef = moduleType.FindMethod("Splash");
-            var injectedMethodDef = InjectHelper.Inject(injectionMethodDef, targetModuleDef);
-
             var constructorMethodDef = typeDef.FindOrCreateStaticConstructor();
-            constructorMethodDef.Body = injectedMethodDef.Body;
+            constructorMethodDef.Body = moduleType.FindMethod("Splash").Body;
 
-            AfterInjectionCallback(injectedMethodDef, obj);
+            AfterInjectionCallback(constructorMethodDef, obj);
         }
 
         public abstract void AfterInjectionCallback(MethodDef injectedMethodDef, object obj);
