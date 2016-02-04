@@ -37,7 +37,7 @@ namespace SplashCreator.Core.Techniques
             }                             
         }
 
-        private string GetImageAsBase64(Image image)
+        private string GetImageAsBase64String(Image image)
         {                             
             if (image == null)
                 throw new NullReferenceException(nameof(image));
@@ -62,7 +62,7 @@ namespace SplashCreator.Core.Techniques
                 switch (instruction.Operand.ToString())
                 {
                     case "ReplaceMe1":           
-                        instruction.Operand = GetImageAsBase64(objArray[1] as Image);
+                        instruction.Operand = GetImageAsBase64String(objArray[1] as Image);
                         break;
                     case "ReplaceMe2":
                         instruction.Operand = objArray[0] as string;
