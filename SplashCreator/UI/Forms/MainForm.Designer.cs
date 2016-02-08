@@ -46,10 +46,9 @@
             // 
             this.tbExecutablePath.Location = new System.Drawing.Point(12, 12);
             this.tbExecutablePath.Name = "tbExecutablePath";
+            this.tbExecutablePath.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tbExecutablePath.Size = new System.Drawing.Size(307, 21);
             this.tbExecutablePath.TabIndex = 1;
-            this.tbExecutablePath.Text = "C:\\Users\\Trvp\\Documents\\Visual Studio 2015\\Projects\\SplashCreator\\SplashCreator\\b" +
-    "in\\Debug\\SplashCreator.exe";
             this.tbExecutablePath.DoubleClick += new System.EventHandler(this.tbExecutablePath_DoubleClick);
             // 
             // cbSplashTechniques
