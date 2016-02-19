@@ -50,7 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Extensions\MethodDefExtensions.cs" />
     <Compile Include="Core\Helpers\InitializedDataCreator.cs" />
     <Compile Include="Core\Helpers\InjectorHelper.cs" />
     <Compile Include="Core\Helpers\SplashCreator.cs" />
